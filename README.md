@@ -1,39 +1,88 @@
-# vagrant-lamp-bootstrap
+Backdrop is a full-featured content management system that allows non-technical
+users to manage a wide variety of content. It can be used to create all kinds of
+websites including blogs, image galleries, social networks, intranets, and more.
 
-A super-simple Vagrantfile / bootstrap.sh to setup a LAMP stack inside Vagrant 100% automatically.
+Backdrop aims to provide:
+- A CMS that can be used out-of-the-box.
+- Code that can be learned quickly.
+- Extensible APIs.
 
-### Whaaaaat ?
+Requirements
+------------
+- PHP 5.3.2 or higher
+- MySQL 5.0.15 or higher with PDO enabled
+- Apache (recommended) or Nginx web server
+- 50 MB of disk space (recommended), 15 MB (minimum)
 
-This is a reduced-to-the-max Vagrant setup file for a quick development stack. It will:
+Installation
+------------
 
-* setup a Ubuntu 14.04 LTS "Trustry Thar" 64bit box
+1. Create a new database, username, and password for Backdrop to use in MySQL.
 
-* make the box accessable by the host at IP `192.168.33.22`
+2. Point your browser at the URL of your Backdrop installation. You will be
+   redirected to the install screen. If you're not redirected, visit the install
+   URL. If Backdrop was installed at http://example.com/backdrop, the install
+   URL would be http://example.com/backdrop/core/install.php.
 
-* sync the current folder with `/var/www/html` inside the box
+3. Follow the instructions provided by the installer.
 
-* automatically perform all the commands in bootstrap.sh directly after setting up the box for the first time
+Bug Reports and Feature Requests
+--------------------------------
+Please use the GitHub
+[issue tracker](https://github.com/backdrop/backdrop-issues/issues) for
+reporting all bugs and features. We use a separate issue tracker that is not
+part of the main Backdrop code repository because of GitHub's restrictions on
+the use of labels and issue management.
 
-The bootstrap.sh will:
+Security Issues
+---------------
+If you have discovered a security issue with Backdrop CMS or any of its
+[contributed modules](https://github.com/backdrop-contrib/), please contact the
+Backdrop Security Team directly at [security@backdropcms.org](mailto:security@backdropcms.org).
+We manage security issues separately in a private repository until the issue
+has been resolved. Even if you're not sure if it's a security problem, please
+contact the security team before filing an issue.
 
-* update, upgrade
+Developers
+----------
+Backdrop is a fork of Drupal. It preserves the legacy audience of developers who
+value ease of use and speed of learning over architectural flexibility. You can
+join Backdrop's developer community by
+[forking Backdrop](https://github.com/backdrop/backdrop) on GitHub.
 
-* create a folder inside /var/www/html
+When submitting a pull request, please make sure there is an open issue in the
+[issue tracker](https://github.com/backdrop/backdrop-issues/issues) and
+reference it in the description on the pull request.
 
-* install apache 2.4, php 5.5, MySQL, PHPMyAdmin, git and Composer
+Thanks to the following companies for providing sponsorship through services and
+products which may be used by Backdrop contributors to build and improve the
+project:
 
-* also setting a pre-chosen password for MySQL and PHPMyAdmin
+- [BrowserStack](https://www.browserstack.com) for interface testing across
+  desktop and mobile browsers. *(Contact info@backdropcms.org for access
+  information.)*
+- [JetBrains](https://www.jetbrains.com/phpstorm/) for use of the PHPStorm IDE
+  for development. *(Contact info@backdropcms.org for a license.)*
+- [GitHub](https://github.com) for collaboration and code management tools.
+- [ZenCI](https://zen.ci/) for continuous automated testing and sandbox testing.
 
-* activate mod_rewrite and add *AllowOverride All* to the vhost settings
+User Guide
+----------
+Please see the the [Backdrop Handbook](https://backdropcms.org/handbook).
 
-You can folder and password inside the bootstrap.sh for sure.
+Developer Documentation
+-----------------------
+Please see the the [Backdrop API Documentation](https://api.backdropcms.org).
 
-### How to use ?
+License
+-------
+Backdrop is [GPL v2](http://www.gnu.org/licenses/gpl-2.0.html) (or higher)
+software. See the LICENSE.txt file in the core directory for complete text.
+Distributions of this software may relicense it as any later version of the GPL.
 
-Put `Vagrantfile` and `bootstrap.sh` inside a folder and do a `vagrant up` on the command line.
-This box uses Ubuntu 14.04 LTS "Trustry Thar" 64bit, so if you don't have the basic box already, do a 
-`vagrant box add ubuntu/trusty64` before.
+All Backdrop code is Copyright 2001 - 2016 by the original authors.
 
-### Why ?
-
-This is just my personal time-saving bootstrap for Vagrant, it might be useful for you too.
+Backdrop also includes works under different copyright notices that are
+distributed according to the terms of the GNU General Public License or a
+compatible license. These individual works may have specific copyright 
+information noted within their source code files or directories.
