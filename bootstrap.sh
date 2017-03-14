@@ -7,12 +7,12 @@ PASSWORD='12345678'
 sudo apt install -y unattended-upgrades
 
 # install apache 2.5 and php 5.5
-sudo apt install -y apache2 php5
+sudo apt install -y apache2 php
 
 # install mysql and give password to installer
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $PASSWORD"
-sudo apt -y install mysql-server php5-mysql
+sudo apt -y install mysql-server php-mysql
 
 # setup hosts file
 VHOST=$(cat <<EOF
