@@ -54,4 +54,4 @@ curl -s https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
 # Drush
-composer global require drush/drush
+composer global require drush/drush:~8.x
