@@ -3,34 +3,16 @@
 # Use single quotes instead of double quotes to make it work with special-character passwords
 PASSWORD='12345678'
 
-
-# update / upgrade
-# sudo apt-get update
-# sudo apt-get -y upgrade
-
-
 # minimze unnecessary updates
 sudo apt install -y unattended-upgrades
 
 # install apache 2.5 and php 5.5
-sudo apt install -y apache2
-sudo apt install -y php5
+sudo apt install -y apache2 php5
 
 # install mysql and give password to installer
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $PASSWORD"
-sudo apt -y install mysql-server
-sudo apt -y install php5-mysql
-
-
-# install phpmyadmin and give password(s) to installer
-# for simplicity I'm using the same password for mysql and phpmyadmin
-# sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
-#sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $PASSWORD"
-# sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $PASSWORD"#
-#sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $PASSWORD"
-#sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
-#sudo apt-get -y install phpmyadmin
+sudo apt -y install mysql-server php5-mysql
 
 # setup hosts file
 VHOST=$(cat <<EOF
@@ -63,4 +45,4 @@ composer global require drush/drush:~8.x
 
 
 # Run only necessary security updates
-sudo unattended-upgrades -y
+sudo unattended-upgrades
