@@ -5,18 +5,22 @@ PASSWORD='12345678'
 
 
 # update / upgrade
-sudo apt-get update
-sudo apt-get -y upgrade
+# sudo apt-get update
+# sudo apt-get -y upgrade
+
+
+# minimze unnecessary updates
+sudo apt install -y unattended-upgrades
 
 # install apache 2.5 and php 5.5
-sudo apt-get install -y apache2
-sudo apt-get install -y php5
+sudo apt install -y apache2
+sudo apt install -y php5
 
 # install mysql and give password to installer
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $PASSWORD"
-sudo apt-get -y install mysql-server
-sudo apt-get install php5-mysql
+sudo apt -y install mysql-server
+sudo apt -y install php5-mysql
 
 
 # install phpmyadmin and give password(s) to installer
@@ -48,7 +52,7 @@ sudo a2enmod rewrite
 service apache2 restart
 
 # install git
-sudo apt-get -y install git
+sudo apt -y install git
 
 # install Composer
 curl -s https://getcomposer.org/installer | php
@@ -56,3 +60,7 @@ mv composer.phar /usr/local/bin/composer
 
 # Drush
 composer global require drush/drush:~8.x
+
+
+# Run only necessary security updates
+sudo unattended-upgrades -y
