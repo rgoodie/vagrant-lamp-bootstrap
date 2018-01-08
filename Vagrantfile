@@ -11,6 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Create a private network, which allows host-only access to the machine using a specific IP.
   config.vm.network "private_network", ip: "192.168.33.22"
+    # Forward ports to Apache and MySQL
+    config.vm.network "forwarded_port", guest: 80, host: 8888
+    config.vm.network "forwarded_port", guest: 3306, host: 8889
 
   # Share an additional folder to the guest VM. The first argument is the path on the host to the actual folder.
   # The second argument is the path on the guest to mount the folder.
